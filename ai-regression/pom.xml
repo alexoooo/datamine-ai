@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--====================================================================-->
+    <parent>
+        <artifactId>ai</artifactId>
+        <groupId>ao.ai</groupId>
+        <version>0.0.8-SNAPSHOT</version>
+    </parent>
+
+
+    <!--====================================================================-->
+    <artifactId>ai-regression</artifactId>
+
+
+    <!--====================================================================-->
+    <name>AI : Regression</name>
+
+    
+    <!--====================================================================-->
+    <dependencies>
+        <dependency>
+            <groupId>ao.ai</groupId>
+            <artifactId>ai-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-lang</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+		</dependency>
+    </dependencies>
+</project>

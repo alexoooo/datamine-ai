@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao.common</groupId>
+        <artifactId>ao-parent</artifactId>
+        <version>8</version>
+    </parent>
+
+
+    <!--====================================================================-->
+    <groupId>ao.ai</groupId>
+    <artifactId>ai</artifactId>
+    <version>0.0.8-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+
+    <!--====================================================================-->
+    <name>AI</name>
+    <url>http://code.google.com/p/datamine</url>
+    <inceptionYear>2008</inceptionYear>
+    <description>Machine Learning and Optimization</description>
+
+
+    <!--====================================================================-->
+    <modules>
+        <module>ai-model</module>
+        <module>ai-regression</module>
+        <module>ai-classification</module>
+        <module>ai-demo</module>
+        <module>ai-test</module>
+        <module>ai-optimization</module>
+        <module>ai-cluster</module>
+    </modules>
+
+
+    <!--====================================================================-->
+    <scm>
+        <developerConnection>
+            scm:svn:https://datamine.googlecode.com/svn/proj/ai/trunk
+        </developerConnection>
+    </scm>
+
+
+    <!--====================================================================-->
+    <properties>
+        <svn.root>https://datamine.googlecode.com/svn/proj/ai</svn.root>
+        
+        <ao.util.version>2.4.3</ao.util.version>
+    </properties>
+
+
+    <!--====================================================================-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ai-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ai-classification</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ai-regression</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ai-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ai-demo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ao.util</groupId>
+                <artifactId>util-lang</artifactId>
+                <version>${ao.util.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ao.util</groupId>
+                <artifactId>util-serial-persist</artifactId>
+                <version>${ao.util.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>14.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math</artifactId>
+                <version>2.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+            <optional>false</optional>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>-->
+    </dependencies>
+
+    
+    <!--====================================================================-->
+    <repositories>
+        <repository>
+            <id>ao-central</id>
+            <name>AO Specific Releases</name>
+            <url>https://raw.githubusercontent.com/alexoooo/ao-commons/master/lib-releases</url>
+        </repository>
+    </repositories>
+    
+</project>
