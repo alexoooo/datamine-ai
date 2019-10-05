@@ -1,5 +1,6 @@
 package ao.ai.demo.supervised.classification.plane;
 
+import ao.ai.classify.online.RandomTreeLearner;
 import ao.ai.classify.online.forest.OnlineRandomForest;
 import ao.ai.ml.model.algo.OnlineBinaryLearner;
 import ao.ai.ml.model.algo.adapt.OnlineMultiToBinaryLeaner;
@@ -105,9 +106,8 @@ public class NewBinaryClassificationPanel
 //        return new MeanBinKernelClassifier();
 
 //        return new RandomTreeLearner();
-        return new OnlineMultiToBinaryLeaner<RealList>(
+        return new OnlineMultiToBinaryLeaner<>(
                 new OnlineRandomForest());
-//                new OnnLearner());
 //        return new OnlineBagging(
 //                new Factory<OnlineBinaryLearner<RealList>>() {
 //                    @Override public OnlineBinaryLearner<RealList> newInstance() {

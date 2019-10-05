@@ -6,11 +6,11 @@
 
 
     <!--====================================================================-->
-    <parent>
+    <!--<parent>
         <groupId>ao.common</groupId>
         <artifactId>ao-parent</artifactId>
         <version>8</version>
-    </parent>
+    </parent>-->
 
 
     <!--====================================================================-->
@@ -49,9 +49,10 @@
 
     <!--====================================================================-->
     <properties>
-        <svn.root>https://datamine.googlecode.com/svn/proj/ai</svn.root>
+<!--        <svn.root>https://datamine.googlecode.com/svn/proj/ai</svn.root>-->
         
         <ao.util.version>2.4.3</ao.util.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 
@@ -130,7 +131,22 @@
         </dependency>-->
     </dependencies>
 
-    
+
+    <!--====================================================================-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>13</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
     <!--====================================================================-->
     <repositories>
         <repository>
@@ -139,5 +155,4 @@
             <url>https://raw.githubusercontent.com/alexoooo/ao-commons/master/lib-releases</url>
         </repository>
     </repositories>
-    
 </project>

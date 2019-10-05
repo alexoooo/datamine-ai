@@ -12,5 +12,5 @@ public interface OnlineMultiLearner<I>
 {
     //------------------------------------------------------------------------
 //    @Override
-    public void learn(I input, MultiClass output);
+    void learn(I input, MultiClass output);
 }

@@ -9,11 +9,11 @@ import ao.ai.ml.model.output.MultiClass;
 public interface MultiClassifier<I>
 {
     //------------------------------------------------------------------------
-    public MultiClass classify(I input);
+    MultiClass classify(I input);
 
 
     //------------------------------------------------------------------------
-    public static class ConstantDummy<I>
+    class ConstantDummy<I>
             implements MultiClassifier<I>
     {
         private final MultiClass classificationConstant;
