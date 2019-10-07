@@ -3,6 +3,8 @@ package ao.ai.classify.linear;
 import ao.ai.ml.model.input.RealList;
 import ao.util.math.Calc;
 
+import java.io.*;
+
 import static ao.ai.classify.linear.LinearClassificationUtilities.hingeLoss;
 import static ao.ai.classify.linear.LinearClassificationUtilities.norm;
 
@@ -15,20 +17,68 @@ public class PassiveAggressive
         extends LinearBinaryOnlineLearner
 {
     //------------------------------------------------------------------------
+    private static final double defaultPa3c = 1.0 / (2.0 * 0.001);
+
+
+    public static void persist(
+            PassiveAggressive instance, ObjectOutputStream out) throws IOException
+    {
+        if (instance.PA2_C != defaultPa3c) {
+            throw new UnsupportedOperationException();
+        }
+
+        if (instance.weights == null) {
+            out.writeInt(-1);
+        }
+        else {
+            out.writeInt(instance.weights.length);
+
+            for (double weight : instance.weights) {
+                out.writeDouble(weight);
+            }
+        }
+    }
+
+
+    public static PassiveAggressive restore(ObjectInputStream in) throws IOException
+    {
+        int length = in.readInt();
+
+        double[] weights;
+        if (length == -1) {
+            weights = null;
+        }
+        else {
+            weights = new double[length];
+
+            for (int i = 0; i < length; i++) {
+                weights[i] = in.readDouble();
+            }
+        }
+
+        return new PassiveAggressive(defaultPa3c, weights);
+    }
+
+
+    //------------------------------------------------------------------------
     private final double PA2_C;
 
 
     //------------------------------------------------------------------------
     public PassiveAggressive()
     {
-        this(0.001);
+        PA2_C = defaultPa3c;
     }
 
     public PassiveAggressive(double c)
     {
-//        this.C = c;
+        PA2_C = 1.0 / (2.0 * c);
+    }
 
-        this.PA2_C = 1.0 / (2.0 * c);
+    protected PassiveAggressive(double pa2c, double[] weights)
+    {
+        super(weights);
+        PA2_C = pa2c;
     }
 
 

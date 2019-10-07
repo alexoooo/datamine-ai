@@ -4,13 +4,15 @@ import ao.ai.ml.model.input.RealList;
 import ao.ai.ml.model.output.BinaryScoreClass;
 import ao.ai.ml.model.theory.BinaryScoreClassifier;
 
+import java.io.Serializable;
+
 /**
  * User: AO
  * Date: Oct 9, 2010
  * Time: 2:27:26 PM
  */
 public class LinearBinaryClassifier
-        implements BinaryScoreClassifier<RealList>
+        implements BinaryScoreClassifier<RealList>//, Serializable
 {
     //------------------------------------------------------------------------
     private final double[] weights;

@@ -1,11 +1,14 @@
 package ao.ai.ml.model.output;
 
+import java.io.Serializable;
+
 /**
  * User: AO
  * Date: Sep 1, 2010
  * Time: 11:01:22 PM
  */
 public class BinaryClass
+        implements Serializable
 {
     //------------------------------------------------------------------------
     private static final BinaryClass POSITIVE = new BinaryClass( true  );

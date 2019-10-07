@@ -8,6 +8,7 @@ import ao.ai.ml.model.output.BinaryScoreClass;
 import ao.ai.ml.model.theory.BinaryScoreClassifier;
 import com.google.common.base.Preconditions;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -16,10 +17,10 @@ import java.util.Arrays;
  * Time: 3:07:17 PM
  */
 public abstract class LinearBinaryOnlineLearner
-        implements OnlineBinaryScoreLearner<RealList>
+        implements OnlineBinaryScoreLearner<RealList>//, Serializable
 {
     //-------------------------------------------------------------------------
-    private double[]                        weights;
+    protected double[]                        weights;
     private BinaryScoreClassifier<RealList> classifier =
             new ConstantDummy<RealList>();
 //            new RandomDummy<RealList>();
@@ -29,6 +30,20 @@ public abstract class LinearBinaryOnlineLearner
 //    private int learnCount = 0;
 //    private BinaryScoreClassifier<RealList> meanClassifier =
 //            new ConstantDummy<RealList>();
+
+
+    //-------------------------------------------------------------------------
+    protected LinearBinaryOnlineLearner() {}
+
+
+    protected LinearBinaryOnlineLearner(double[] weights)
+    {
+        this.weights = weights;
+
+        if (weights != null) {
+            classifier = new LinearBinaryClassifier( weights );
+        }
+    }
 
 
     //-------------------------------------------------------------------------
