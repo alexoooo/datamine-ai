@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Date: 12/25/10
  * Time: 2:14 PM
  */
-/*package-private*/ class Sample
+public class Sample
 {
     //------------------------------------------------------------------------
     private double[] counts;
@@ -147,6 +147,20 @@ import java.util.Arrays;
     public Sample prototype()
     {
         return new Sample( counts.clone() );
+    }
+
+
+    //------------------------------------------------------------------------
+    public double get(int index) {
+        if (counts.length <= index) {
+            return 0;
+        }
+        return counts[index];
+    }
+
+
+    public void clear() {
+        Arrays.fill(counts, 0);
     }
 
 

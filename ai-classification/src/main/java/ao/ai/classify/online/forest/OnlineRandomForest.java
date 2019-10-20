@@ -170,6 +170,18 @@ public class OnlineRandomForest
     }
 
 
+    public void sample(RealList input, Sample sample)
+    {
+        if (roots == null || roots[0] == null) {
+            return;
+        }
+
+        for (Node root : roots) {
+            sample.learn(root.predict(input));
+        }
+    }
+
+
     //------------------------------------------------------------------------
     @Override
     public String toString()
